@@ -1,4 +1,4 @@
-// Copyright (c), Firelight Technologies Pty, Ltd. 2012-2024.
+// Copyright (c), Firelight Technologies Pty, Ltd. 2012-2023.
 
 #include "FMODAudioComponent.h"
 #include "FMODStudioModule.h"
@@ -378,19 +378,8 @@ void UFMODAudioComponent::OnUnregister()
     Super::OnUnregister();
 }
 
-void UFMODAudioComponent::BeginPlay()
-{
-#if WITH_EDITOR
-    IFMODStudioModule::Get().PreEndPIEEvent().AddUObject(this, &UFMODAudioComponent::Shutdown);
-#endif
-    Super::BeginPlay();
-}
-
 void UFMODAudioComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
-#if WITH_EDITOR
-    IFMODStudioModule::Get().PreEndPIEEvent().RemoveAll(this);
-#endif
     Super::EndPlay(EndPlayReason);
     bool shouldStop = false;
 
@@ -863,14 +852,6 @@ void UFMODAudioComponent::Release()
 {
     ReleaseEventInstance();
 }
-
-#if WITH_EDITOR
-void UFMODAudioComponent::Shutdown()
-{
-    Stop();
-    Release();
-}
-#endif
 
 void UFMODAudioComponent::ReleaseEventCache()
 {

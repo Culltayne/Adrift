@@ -1,4 +1,4 @@
-// Copyright (c), Firelight Technologies Pty, Ltd. 2012-2024.
+// Copyright (c), Firelight Technologies Pty, Ltd. 2012-2023.
 
 #include "FMODStudioEditorModule.h"
 #include "FMODStudioModule.h"
@@ -1111,7 +1111,6 @@ void FFMODStudioEditorModule::BeginPIE(bool simulating)
 
 void FFMODStudioEditorModule::EndPIE(bool simulating)
 {
-    IFMODStudioModule::Get().PreEndPIE();
     UE_LOG(LogFMOD, Verbose, TEXT("FFMODStudioEditorModule EndPIE: %d"), simulating);
     bSimulating = false;
     bIsInPIE = false;
