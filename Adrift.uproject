@@ -26,6 +26,11 @@
 		{
 			"Name": "FMODStudioNiagara",
 			"Enabled": true
+		},
+		{
+			"Name": "AudioExporter",
+			"Enabled": false,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/8496fdc058ef4be9b8b8a9b8a8178e9d"
 		}
 	]
 }
